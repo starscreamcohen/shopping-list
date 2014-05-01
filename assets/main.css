@@ -1,0 +1,27 @@
+body {
+	font-size: 16px;
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 400;
+}	
+	#body-wrapper {
+		width: 80%;
+		margin: 0 auto;
+		padding-top: 10px
+	}
+		h2 { 
+			text-align: center;
+		}
+		#shopping-list-wrapper {
+			width: 80%;
+			margin: 0 auto;
+			padding: 15px 0;
+		}
+			#input-wrapper {
+			}
+				#input {
+					font-family: 'Helvetica', Arial, Lucida Grande, sans-serif !important;
+					
+				}
+				#submit {
+
+				}
