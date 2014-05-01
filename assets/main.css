@@ -1,6 +1,6 @@
 body {
 	font-size: 16px;
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Helvetica', Arial, Lucida Grande, sans-serif !important;
 	font-weight: 400;
 }	
 	#body-wrapper {
@@ -11,17 +11,29 @@ body {
 		h2 { 
 			text-align: center;
 		}
-		#shopping-list-wrapper {
-			width: 80%;
-			margin: 0 auto;
-			padding: 15px 0;
-		}
 			#input-wrapper {
+				width: 90%;
+				margin-bottom: 20px;
 			}
 				#input {
-					font-family: 'Helvetica', Arial, Lucida Grande, sans-serif !important;
-					
+					border: 1px solid black;
+					border-radius: 2px;
+					height: 30px;
+					width: 50%;
+					margin: 0 0 0 30%;
+					text-indent: 10px
 				}
 				#submit {
-
+					height: 30px;
 				}
+			.item {
+				margin-left: 18%;
+				margin-bottom: 5px;
+			}
+				.item input {
+					margin-right: 6px;
+				}
+
+			h3 {
+				margin-left: 14%;
+			}
