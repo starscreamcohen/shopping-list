@@ -3,7 +3,7 @@ $(document).ready(function() {
 		 event.preventDefault();
 			var myValue = $('#input').val();
 			var newDiv = $('<div />').addClass('item');
-			var checkBox = $('<input>').attr('type', 'checkbox');
+			var checkBox = $('<input>').attr('type', 'checkbox').addClass('input');
 			var span = $('<span />').addClass('item-name').html(''+myValue+'');
 			var pencil = $('<span />').addClass('glyphicon-pencil');
 			var trashCan = $('<span />').addClass('glyphicon-trash');
@@ -18,6 +18,15 @@ $(document).ready(function() {
 			// Expect Form To Reset After Function Runs
 		var controlInput = $("#input");
         controlInput.replaceWith(controlInput = controlInput.val('').clone(true));
+
+	});
+
+	// A Click Handler Event that Fire When Checkbox is clicked
+	$(document).on('click', '.input', function() {
+		$(this).closest('.item').appendTo('#picked-items');
+
+		console.log('Success');
+     // $('.input').attr('checked', false);
 
 	});
 });
