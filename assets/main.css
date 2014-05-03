@@ -40,6 +40,12 @@ body {
 				.glyphicon-pencil {
 					margin-right: 5px;
 				}
+				.glyphicon-pencil-show {
+					display: inline;
+				}
+				.glyphicon-pencil-hide {
+					display: none;
+				}
 				.glyphicon-pencil:hover {
 					color: yellow;
 				}
@@ -52,7 +58,7 @@ body {
 				line-height: 24px;
 				margin-left: 15%;
 			}
-			.glyphicon-eye-open {
+			.glyphicon-eye-close {
 				display: none;
 			}	
 			h3 {
