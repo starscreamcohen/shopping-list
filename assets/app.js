@@ -1,6 +1,6 @@
 $(document).ready(function() {
 	$('#submit').click(function(event) {
-		event.preventDefault()
+		 event.preventDefault();
 			var myValue = $('#input').val();
 			var newDiv = $('<div />').addClass('item');
 			var checkBox = $('<input>').attr('type', 'checkbox');
@@ -14,6 +14,11 @@ $(document).ready(function() {
 			$(checkBox).insertBefore(span);
 			$(pencil).insertAfter(span).addClass('glyphicon');
 			$(trashCan).insertAfter(span).addClass('glyphicon');
+
+			// Expect Form To Reset After Function Runs
+		var controlInput = $("#input");
+        controlInput.replaceWith(controlInput = controlInput.val('').clone(true));
+
 	});
 });
 				
