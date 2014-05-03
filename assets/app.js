@@ -51,10 +51,11 @@ $(document).ready(function() {
   
   });
 
-  $('$picked-items-header').on('click', 'hide-header', function() { 
+  $('#picked-items-header').on('click', '.hide-header', function() { 
   	$('#picked-items').slideDown();
   	$('.glyphicon-eye-close').hide();
   	$('.glyphicon-eye-open').show();
   	$('#picked-items-header').removeClass('hide-header');
+	});
 });
 				
