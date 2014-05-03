@@ -1,0 +1,67 @@
+body {
+	font-size: 16px;
+	font-family: 'Helvetica', Arial, Lucida Grande, sans-serif !important;
+	font-weight: 400;
+}	
+	#body-wrapper {
+		width: 80%;
+		margin: 0 auto;
+		padding-top: 10px
+	}
+		h2 { 
+			text-align: center;
+		}
+			#input-wrapper {
+				width: 90%;
+				margin-bottom: 20px;
+			}
+				#input {
+					border: 1px solid black;
+					border-radius: 2px;
+					height: 30px;
+					width: 50%;
+					margin: 0 0 0 30%;
+					text-indent: 10px
+				}
+				#submit {
+					height: 30px;
+				}
+			.item {
+				width: 63%;
+				margin-left: 22%;
+				margin-bottom: 5px;
+			}
+			.item-clone {
+				display: none;
+				width: 63%;
+				margin-left: 22%;
+				margin-bottom: 5px;
+			}
+			}
+				.item input {
+					margin-right: 6px;
+				}
+				.glyphicon {
+					float:right;
+				}
+				.glyphicon-pencil {
+					margin-right: 5px;
+				}
+				.glyphicon-pencil:hover {
+					color: yellow;
+				}
+				.glyphicon-trash:hover {
+					color: red;
+				}
+			.glyphicon-eye-close,
+			.glyphicon-eye-open {
+				float: left;
+				line-height: 24px;
+				margin-left: 15%;
+			}
+			.glyphicon-eye-open {
+				display: none;
+			}	
+			h3 {
+				margin: 30px 0 20px 17%;
+			}
