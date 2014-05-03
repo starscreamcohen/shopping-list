@@ -26,7 +26,7 @@ body {
 				#submit {
 					height: 30px;
 				}
-			.item {
+			.item, .item-picked {
 				width: 63%;
 				margin-left: 22%;
 				margin-bottom: 5px;

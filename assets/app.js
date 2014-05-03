@@ -15,19 +15,25 @@ $(document).ready(function() {
 			$(pencil).insertAfter(span).addClass('glyphicon');
 			$(trashCan).insertAfter(span).addClass('glyphicon');
 
-			// Expect Form To Reset After Function Runs
+			
 		var controlInput = $("#input");
         controlInput.replaceWith(controlInput = controlInput.val('').clone(true));
+    
 
 	});
 
-	// A Click Handler Event that Fire When Checkbox is clicked
-	$(document).on('click', '.input', function() {
-		$(this).closest('.item').appendTo('#picked-items');
-
-		console.log('Success');
-     // $('.input').attr('checked', false);
-
+	
+	$('#picked-items').on('click', '.input', function() {
+		$(this).closest('.item-picked').appendTo('#item-list').addClass('item').removeClass('item-picked');
+			$('.item > span:last').show();
 	});
+
+	// This Function Must Be Below to Ensure that Checkbox is Unchecked
+
+	$('#item-list').on('click', '.input', function() {
+		$(this).closest('.item').appendTo('#picked-items').addClass('item-picked').removeClass('item');
+			$('.item-picked > span:last').hide();
+			$('.input').closest('#item-list').attr('checked', false);
+  });
 });
 				
