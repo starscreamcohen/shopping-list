@@ -42,20 +42,16 @@ $(document).ready(function() {
 
   
   $('#picked-items-header').on('click', function() { 
-  	
-  	
-  	$('#picked-items').slideUp();
-  	$('.glyphicon-eye-open').hide();
-  	$('.glyphicon-eye-close').show();
-  	$('#picked-items-header').addClass('hide-header');
-  
+   	$('#picked-items').slideToggle('fast');
+   		$('.glyphicon-eye-open').toggle();
+   		$('.glyphicon-eye-close').toggle();
   });
 
-  $('#picked-items-header').on('click', '.hide-header', function() { 
-  	$('#picked-items').slideDown();
-  	$('.glyphicon-eye-close').hide();
-  	$('.glyphicon-eye-open').show();
-  	$('#picked-items-header').removeClass('hide-header');
-	});
+  $(document).on('click', '.glyphicon-trash', function() {
+  	// alert('Success')
+  	$(this).closest('.item').remove();
+  	$(this).closest('.item-picked').remove();
+  });
+
 });
 				
