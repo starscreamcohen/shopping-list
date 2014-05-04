@@ -4,16 +4,20 @@ $(document).ready(function() {
 			var myValue = $('#input').val();
 			var newDiv = $('<div />').addClass('item');
 			var checkBox = $('<input>').attr('type', 'checkbox').addClass('input');
+			var textBox = $('<input>').attr('type', 'text').addClass('text');
 			var span = $('<span />').addClass('item-name').html(''+myValue+'');
 			var pencil = $('<span />').addClass('glyphicon-pencil');
 			var trashCan = $('<span />').addClass('glyphicon-trash');
+			var textBox = $('<input>').attr('type', 'text').addClass('text').val( myValue );
 			
 			
 			$(newDiv).appendTo('#item-list');
 			$(span).appendTo(newDiv);
 			$(checkBox).insertBefore(span);
+			$(textBox).insertAfter(checkBox).addClass('text');
 			$(pencil).insertAfter(span).addClass('glyphicon');
 			$(trashCan).insertAfter(span).addClass('glyphicon');
+
 
 			
 		var controlInput = $("#input");
@@ -52,6 +56,11 @@ $(document).ready(function() {
   	$(this).closest('.item').remove();
   	$(this).closest('.item-picked').remove();
   });
+
+  $(document).on('click', '.glyphicon-pencil', function() {
+  	console.log('Jess is nice');
+  });
+
 
 });
 				
