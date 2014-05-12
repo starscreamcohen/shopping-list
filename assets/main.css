@@ -73,7 +73,11 @@ body {
 			h3 {
 				margin: 30px 0 20px 17%;
 			}
-		.item-picked span:first-child{
+		.item-picked span {
 			color: #ccc;
 			font-style: italic;
+		}
+		.item-picked .glyphicon-trash {
+			color: #333;
+			font-style: normal;
 		}
