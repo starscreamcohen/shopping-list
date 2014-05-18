@@ -1,6 +1,5 @@
 $(document).ready(function() {
-	$('#submit').click(function(event) {
-
+	$('#submit').on('click', function(event) {
 		// Function Creates the Value For Each New Item
 		 event.preventDefault();
 			var myValue = $('#input').val();
@@ -38,14 +37,6 @@ $(document).ready(function() {
 	
 	});
 
-function validateForm() {
-var x=document.forms['.text'].value;
-if (x==null || x=="")
-  {
-  alert("You Must Fill Out Form");
-  return false;
-  }
-}
 
 	// This Function Must Be Below to Ensure that Checkbox is Unchecked
 	// Function Puts Item In Picked Up Area
@@ -81,20 +72,30 @@ if (x==null || x=="")
   	
   });
 
-  //Function Shows Text Area When .Item-Name is Double Clicked
-  $(document).on('dblclick', '.item-name', function() {
+  //Function Shows Text Area When .Item-Name is Clicked
+  $(document).on('click', '.item-name', function() {
   	$(this).siblings('.text').show()
-  	.siblings('.item-name').hide();	
+  	.siblings('.item-name').hide().parent().siblings().children('.text').hide()
+  	.siblings('.item-name').show();
 
 	});
-
-  $('.text').bind('keypress', function(event){
-  	var newValue = $(this).val();
-  	if(event.keyCode==13) {
-  		$(this).siblings('.item-name').html(newValue);
-  		$(this).hide();
-  		$('.item-name').show();	
-  	}
+	
+  	$(document).on('keypress', '.text', function(event){
+	  	if(event.keyCode==13) {
+	  		var newValue = $(this).val();
+	  		console.log('work');
+	  		$(this).siblings('.item-name').html(newValue);
+	  		$(this).hide();
+	  		$('.item-name').show();	
+	  	}
   });
+  	$(document).on('keyup', '.text', function(event){
+  		if(event.keyCode==27) {
+  			$(this).hide();
+  			$('.item-name').show();
+  		}
+  	});
+
+  	
 });
 				

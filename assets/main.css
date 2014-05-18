@@ -34,8 +34,11 @@ body {
 				.item input, .item-picked input {
 					margin-right: 6px;
 				}
+				.input {
+					cursor: pointer;
+				}
 				.item-name {
-					
+					cursor: pointer;
 				}
 				.text {
 					display: none;
