@@ -86,7 +86,6 @@ $(document).ready(function() {
 				$(textBox).insertAfter(checkBox).addClass('text');
 				$(pencil).insertAfter(createNewSpan).addClass('glyphicon');
 				$(trashCan).insertAfter(createNewSpan).addClass('glyphicon');
-					}
 			};
 
 			
