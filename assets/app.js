@@ -1,4 +1,20 @@
+function init () {
+
+}
+
+	function addItemBack	() {
+				$(this).closest('.item-picked').appendTo('#item-list').addClass('item').removeClass('item-picked');
+				$('.item').children('span:first-of-type').addClass('item-name')
+				$('.item').children('.glyphicon-pencil')
+				.addClass('glyphicon-pencil-show')
+				.removeClass('glyphicon-pencil-hide');
+				console.log("what's going on");
+	}
+
+
+
 $(document).ready(function() {
+
 	$('#submit').on('click', function(event) {
 		// Function Creates the Value For Each New Item
 		 event.preventDefault();
@@ -26,14 +42,10 @@ $(document).ready(function() {
      
 
 	});
-
-	//Function Puts Item In New List
+ 
+ 
 	$('#picked-items').on('click', '.input', function() {
-		$(this).closest('.item-picked').appendTo('#item-list').addClass('item').removeClass('item-picked');
-		$('.item').children('span:first-of-type').addClass('item-name')
-		$('.item').children('.glyphicon-pencil')
-		.addClass('glyphicon-pencil-show')
-		.removeClass('glyphicon-pencil-hide');
+		addItemBack();
 	
 	});
 
