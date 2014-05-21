@@ -12,7 +12,7 @@
 	
 	<div id="body-wrapper">
 		<h2>The Basket</h2>
-			<form name="myForm" onsubmit="return(validate());">
+			<form name="form" method="post" onSubmit="return validate(this);" action="#">
 				<div id="input-wrapper">
 					<input id="input" type="text" value="" name="input1" placeholder="Grocery Item">
 					<input id="submit" type="submit" value="Add">

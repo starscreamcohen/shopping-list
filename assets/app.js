@@ -1,16 +1,64 @@
 function init () {
+	
+};
 
-}
 
 	function addItemBack	() {
-				$(this).closest('.item-picked').appendTo('#item-list').addClass('item').removeClass('item-picked');
-				$('.item').children('span:first-of-type').addClass('item-name')
-				$('.item').children('.glyphicon-pencil')
-				.addClass('glyphicon-pencil-show')
-				.removeClass('glyphicon-pencil-hide');
-				console.log("what's going on");
-	}
+		$(this).closest('.item-picked').appendTo('#item-list').addClass('item').removeClass('item-picked');
+		$('.item').children('span:first-of-type').addClass('item-name')
+		$('.item').children('.glyphicon-pencil')
+		.addClass('glyphicon-pencil-show')
+		.removeClass('glyphicon-pencil-hide');
+	};
 
+	function removeItem () {
+		$(this).closest('.item').appendTo('#picked-items').addClass('item-picked').removeClass('item');
+			if($('.text').is(':visible')) {
+				$('.text').hide();
+				$('.item-name').show();
+			}
+			$('.item-picked').children('span:first-of-type').removeClass('item-name');
+			$('.item-picked').children('.glyphicon-pencil').addClass('glyphicon-pencil-hide');
+			$('.input').closest('#item-list').attr('checked', false);
+	};
+
+	function showPickedItems () {
+		$('#picked-items').slideToggle('fast');
+   		$('.glyphicon-eye-open').toggle();
+   		$('.glyphicon-eye-close').toggle();
+	};
+
+	function deleteItem () {
+		$(this).closest('.item').remove();
+  	$(this).closest('.item-picked').remove();
+	};
+
+	function editItem () {
+		$(this).siblings('.text').show()
+  	.siblings('.item-name').hide().parent().siblings().children('.text').hide()
+  	.siblings('.item-name').show();
+	};
+	
+	function commitEdits () {
+		if(event.keyCode==13) {
+	  		var newValue = $(this).val();
+	  		$(this).siblings('.item-name').html(newValue);
+	  		$(this).hide();
+	  		$('.item-name').show();	
+	  	}
+	  	else if(event.keyCode==27) {
+  			$(this).hide();
+  			$('.item-name').show();
+  		}
+	};
+
+	function editPencil () {
+		$(this).siblings('.text').toggle();
+	  $(this).siblings('.item-name').toggle();
+  };
+
+
+	
 
 
 $(document).ready(function() {
@@ -22,92 +70,48 @@ $(document).ready(function() {
 			var newDiv = $('<div />').addClass('item');
 			var checkBox = $('<input>').attr('type', 'checkbox').addClass('input');
 			var textBox = $('<input>').attr('type', 'text').addClass('text');
-			var span = $('<span />').addClass('item-name').html(''+myValue+'');
+			var createNewSpan = $('<span />').addClass('item-name').html(''+myValue+'');
 			var pencil = $('<span />').addClass('glyphicon-pencil');
 			var trashCan = $('<span />').addClass('glyphicon-trash');
 			var textBox = $('<input>').attr('type', 'text').addClass('text').val( myValue );
 			
-			
-			$(newDiv).appendTo('#item-list');
-			$(span).appendTo(newDiv);
-			$(checkBox).insertBefore(span);
-			$(textBox).insertAfter(checkBox).addClass('text');
-			$(pencil).insertAfter(span).addClass('glyphicon');
-			$(trashCan).insertAfter(span).addClass('glyphicon');
 
+			if(!$.trim($('#input').val())) {
+				alert('Please Enter a Grocery Item');
+			}
+			else {
+				$(newDiv).appendTo('#item-list');
+				$(createNewSpan).appendTo(newDiv);
+				$(checkBox).insertBefore(createNewSpan);
+				$(textBox).insertAfter(checkBox).addClass('text');
+				$(pencil).insertAfter(createNewSpan).addClass('glyphicon');
+				$(trashCan).insertAfter(createNewSpan).addClass('glyphicon');
+			};
 
 			
 		var controlInput = $("#input");
         controlInput.replaceWith(controlInput = controlInput.val('').clone(true));
-     
-
+ 
 	});
  
  
-	$('#picked-items').on('click', '.input', function() {
-		addItemBack();
+	$('#picked-items').on('click', '.input', addItemBack);
 	
-	});
+
+	$('#item-list').on('click', '.input', removeItem);
 
 
-	// This Function Must Be Below to Ensure that Checkbox is Unchecked
-	// Function Puts Item In Picked Up Area
-	$('#item-list').on('click', '.input', function() {
-		$(this).closest('.item').appendTo('#picked-items').addClass('item-picked').removeClass('item');
-			if($('.text').is(':visible')) {
-				$('.text').hide();
-				$('.item-name').show();
-			}
-			$('.item-picked').children('span:first-of-type').removeClass('item-name');
-			$('.item-picked').children('.glyphicon-pencil').addClass('glyphicon-pencil-hide');
-			$('.input').closest('#item-list').attr('checked', false);
-  });
+  $('#picked-items-header').on('click', showPickedItems);
 
- //Function Toggles the Slide Feature to Show or Not Show Picked Up Items 
-  $('#picked-items-header').on('click', function() { 
-   	$('#picked-items').slideToggle('fast');
-   		$('.glyphicon-eye-open').toggle();
-   		$('.glyphicon-eye-close').toggle();
-  });
+  $(document).on('click', '.glyphicon-trash', deleteItem);
 
+  $(document).on('click', '.glyphicon-pencil', editPencil);
 
-  //Function Removes Text Node When Clicking Trash Can
-  $(document).on('click', '.glyphicon-trash', function() {
-  	$(this).closest('.item').remove();
-  	$(this).closest('.item-picked').remove();
-  });
-
- //Function Shows Text Area Box When Clicked
-  $(document).on('click', '.glyphicon-pencil', function() {
-  	$(this).siblings('.text').toggle();
-  	$(this).siblings('.item-name').toggle();
-  	
-  });
-
-  //Function Shows Text Area When .Item-Name is Clicked
-  $(document).on('click', '.item-name', function() {
-  	$(this).siblings('.text').show()
-  	.siblings('.item-name').hide().parent().siblings().children('.text').hide()
-  	.siblings('.item-name').show();
-
-	});
+  $(document).on('click', '.item-name', editItem);
 	
-  	$(document).on('keypress', '.text', function(event){
-	  	if(event.keyCode==13) {
-	  		var newValue = $(this).val();
-	  		console.log('work');
-	  		$(this).siblings('.item-name').html(newValue);
-	  		$(this).hide();
-	  		$('.item-name').show();	
-	  	}
-  });
-  	$(document).on('keyup', '.text', function(event){
-  		if(event.keyCode==27) {
-  			$(this).hide();
-  			$('.item-name').show();
-  		}
-  	});
+  $(document).on('keyup', '.text', commitEdits);
 
-  	
 });
+
+
 				
